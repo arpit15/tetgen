@@ -13,7 +13,9 @@ add_library(TetGen SHARED tetgen.cxx predicates.cxx)
 #library
 set_target_properties(TetGen PROPERTIES "COMPILE_DEFINITIONS" TETLIBRARY)
 set_target_properties(TetGen PROPERTIES PUBLIC_HEADER "tetgen.h")
-install(TARGETS TetGen EXPORT tetTargets)
+install(TARGETS TetGen EXPORT tetTargets
+  PUBLIC_HEADER DESTINATION include/TetGen)
+
 install(EXPORT tetTargets
   FILE TetGen.cmake
   NAMESPACE TetGen::
